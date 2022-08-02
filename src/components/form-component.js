@@ -1,31 +1,38 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function FormComponent(){
-    const [ selectedItemOne, setSelectedItemOne ] = useState(1);
-    const [ selectedItemTwo, setSelectedItemTwo ] = useState(2);
-    const [ selectedItemThree, setSelectedItemOneThree ] = useState(3);
-    const [ selectedItemFour, setSelectedItemOneFour ] = useState(4);
-    const [ selectedItemFive, setSelectedItemOneFive ] = useState(5);
+    const rateNumbers = [1, 2, 3, 4, 5];
+    const [ratingNumber, setRatingNumber] = useState("");
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const changeHandler = (e) => {
-        console.log(e.target.value);
-        setSelectedItemOne(e.target.value);
-        setSelectedItemTwo(e.target.value);
-        setSelectedItemOneThree(e.target.value);
-        setSelectedItemOneFour(e.target.value);
-        setSelectedItemOneFive(e.target.value);
-    }
+    const clickHandler = (e) => {
+      setRatingNumber(e.target.value);
+    };
 
+    const submitHandler = (e) => {
+      e.preventDefault();
+      if (!ratingNumber) {
+        alert("Please select a rating!");
+      } else {
+        setIsSubmitted(true);
+      }
+    };
 
     return (
-        <form>
-            <input type="button" placeholder="1" value={selectedItemOne} onChange={changeHandler}/>
-            <input type="button" placeholder="2" value={selectedItemTwo} onChange={changeHandler}/>
-            <input type="button" placeholder="3" value={selectedItemThree} onChange={changeHandler}/>
-            <input type="button" placeholder="4" value={selectedItemFour} onChange={changeHandler}/>
-            <input type="button" placeholder="5" value={selectedItemFive} onChange={changeHandler}/>
-
+      <div>
+        {!isSubmitted ? (
+          <form className="form" onSubmit={submitHandler}>
+            {rateNumbers.map((item) => (
+              <div key={item}>
+                <input type="button" value={item} onClick={clickHandler} />
+              </div>
+            ))}
             <button>Submit</button>
-        </form>
-    )
+            {ratingNumber && <p>You have selected {ratingNumber} out of 5</p>}
+          </form>
+        ) : (
+          <h1>Component here!</h1>
+        )}
+      </div>
+    );
 }

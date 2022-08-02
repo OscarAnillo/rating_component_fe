@@ -37,30 +37,46 @@
   padding-bottom: 2em;
 }
 
-form input {
+.form div {
   display: inline-block;
-  width: 15%;
-  margin: 0 .5em;
+  width: 17%;
+  margin: 0px 9px 0px 0px;
+
+}
+
+.form input {
   border: none;
   border-radius: 100px;
   padding: 1em;
+  width: 100%;
   color: hsl(217, 12%, 63%);
   background: rgb(38, 47, 56);
+  cursor: pointer;
+  outline: none;
 }
 
-form input:hover {
-  background: hsl(25, 97%, 53%);
+.form input:hover {
+  background-color: hsl(25, 97%, 53%);
+  color: #fff;
+  cursor: pointer;
 }
 
-form button {
-  background: hsl(25, 97%, 53%);
-  margin-top: 2em;
+.form button {
   width: 100%;
   border: none;
-  border-radius: 50px;
+  border-radius: 100px;
+  margin-top: 2em;
   padding: 1.3em 0;
+  background-color: hsl(25, 97%, 53%);
   color: #fff;
+  background: hsl(25, 97%, 53%);
+  cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
 }
+
+.form button:hover {
+  background: #fff;
+  color: hsl(25, 97%, 53%);
+} 
