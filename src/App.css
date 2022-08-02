@@ -18,7 +18,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: hsl(213, 19%, 18%);
+  background: linear-gradient(hsl(213, 19%, 18%) 60%, rgb(19, 26, 34));
   width: 80%;
   padding: 2em 1em;
   border-radius: 10px;
@@ -45,7 +45,7 @@ form input {
   border-radius: 100px;
   padding: 1em;
   color: hsl(217, 12%, 63%);
-  background: hsl(216, 12%, 54%);
+  background: rgb(38, 47, 56);
 }
 
 form input:hover {
