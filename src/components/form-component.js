@@ -1,4 +1,6 @@
 import { useState } from "react";
+import TextComponent from "./text-component";
+import ThanksComponent from "./thanks-component";
 
 export default function FormComponent(){
     const rateNumbers = [1, 2, 3, 4, 5];
@@ -21,17 +23,21 @@ export default function FormComponent(){
     return (
       <div>
         {!isSubmitted ? (
-          <form className="form" onSubmit={submitHandler}>
-            {rateNumbers.map((item) => (
-              <div key={item}>
-                <input type="button" value={item} onClick={clickHandler} />
-              </div>
-            ))}
-            <button>Submit</button>
-            {ratingNumber && <p>You have selected {ratingNumber} out of 5</p>}
-          </form>
+          <>
+            <TextComponent />
+            <form className="form" onSubmit={submitHandler}>
+              {rateNumbers.map((item) => (
+                <div key={item}>
+                  <input type="button" value={item} onClick={clickHandler} />
+                </div>
+              ))}
+              <button>Submit</button>
+            </form>
+          </>
         ) : (
-          <h1>Component here!</h1>
+          <h1>
+            <ThanksComponent ratingNumber={ratingNumber} />
+          </h1>
         )}
       </div>
     );

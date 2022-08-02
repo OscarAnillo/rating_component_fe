@@ -79,4 +79,31 @@
 .form button:hover {
   background: #fff;
   color: hsl(25, 97%, 53%);
-} 
+}
+
+.rating {
+  text-align: center;
+}
+.rating p {
+  width: 80%;
+  margin: 1em auto;
+  padding: 1px 0;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  color: hsl(25, 97%, 53%);
+  background: rgb(33, 39, 48);
+}
+.rating h3 {
+  color: #fff;
+  font-weight: 400;
+  margin: .6em 0;
+}
+
+.rating .legend {
+  color: hsl(217, 12%, 63%);
+  background: none;
+  width: 90%;
+  line-height: 20px;
+  margin: 10px auto;
+}
