@@ -6,32 +6,34 @@ export default function FormComponent(){
     const rateNumbers = [1, 2, 3, 4, 5];
     const [ratingNumber, setRatingNumber] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [backGround, setBackground] = useState(false);
 
     const clickHandler = (e) => {
       setRatingNumber(e.target.value);
+      setBackground(!backGround)
     };
 
     const submitHandler = (e) => {
       e.preventDefault();
       if (!ratingNumber) {
         alert("Please select a rating!");
-      } else {
+        return;
+      } 
         setIsSubmitted(true);
-      }
     };
 
     return (
-      <div>
+      <div className="container">
         {!isSubmitted ? (
           <>
             <TextComponent />
             <form className="form" onSubmit={submitHandler}>
+              <div>
               {rateNumbers.map((item) => (
-                <div key={item}>
-                  <input type="button" value={item} onClick={clickHandler} />
-                </div>
-              ))}
-              <button>Submit</button>
+                  <input key={item} type="button" value={item} onClick={clickHandler}/>
+                  ))}
+              </div>
+                <button>Submit</button>
             </form>
           </>
         ) : (
