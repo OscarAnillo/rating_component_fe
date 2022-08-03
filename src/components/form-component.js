@@ -6,11 +6,9 @@ export default function FormComponent(){
     const rateNumbers = [1, 2, 3, 4, 5];
     const [ratingNumber, setRatingNumber] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [backGround, setBackground] = useState(false);
 
     const clickHandler = (e) => {
       setRatingNumber(e.target.value);
-      setBackground(!backGround)
     };
 
     const submitHandler = (e) => {
@@ -30,7 +28,7 @@ export default function FormComponent(){
             <form className="form" onSubmit={submitHandler}>
               <div>
               {rateNumbers.map((item) => (
-                  <input key={item} type="button" value={item} onClick={clickHandler}/>
+                  <input key={item} type="button" value={item} onClick={clickHandler} />
                   ))}
               </div>
                 <button>Submit</button>
